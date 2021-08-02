@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aviatur</title>
+    <link rel="shortcut icon" href="assets/icons/icono.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="assets/images/logo-aviatur.svg" class="logo">
+    </div>
+    <div class="row">
+        <div class="side">
+            <h2>Filtros</h2>
+            <h4>Nombre del Hotel</h4>
+            <div class="box1">
+                <input type="text" name="hotel" class="box" size="40">
+                <button id="button" class="btn">Buscar</button>
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                <script src="base.js"></script>
+            </div>
+            <h3>Estrellas</h3>
+            <label class="radio">
+                <input type="radio" name="group-radio">
+                <i class="icon-radio"></i>
+                Todas las Estrellas
+                <br>
+                <label class="radio">
+                    <input type="radio" name="group-radio">
+                    <i class="icon-radio"></i>
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                </label>
+                <br>
+                <label class="radio">
+                    <input type="radio" name="group-radio">
+                    <i class="icon-radio"></i>
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                </label>
+                <br>
+                <label class="radio disabled">
+                    <input type="radio" name="group-radio">
+                    <i class="icon-radio"></i>
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                </label>
+                <br>
+                <label class="radio disabled">
+                    <input type="radio" name="group-radio">
+                    <i class="icon-radio"></i>
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                </label>
+                <br>
+                <label class="radio disabled">
+                    <input type="radio" name="group-radio">
+                    <i class="icon-radio"></i>
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                    <img src="assets/icons/filters/star.svg" class="icons">
+                </label>
+        </div>
+        <div class="main">
+            <table class="table"> 
+                <thead>
+                    <tr>
+                        <th class="th1">NOMBRE</th>
+                        <th class="th2">PRECIO</th>
+                        <th class="th3">ESTRELLAS</th>
+                    </tr>
+                </thead>
+                <tbody id="data"></tbody>
+            </table>
+            <script>
+                let url = 'data/data.json'
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => mostraData(data))
+                    .catch(error => console.log(error))
+                const mostraData = (data) => {
+                    console.log(data)
+                    let body = ''
+                    for (let i = 0; i < data.length; i++) {   
+                        body += `<tr>                                                      
+                            <img src=assets/images/hotels/${data[i].image} alt="MDN">
+                            <td class="all">${data[i].name}</td><td>${data[i].price}<td>${data[i].stars}</td></td><td>`
+                        document.getElementById('data').innerHTML = body
+                    }
+                }
+            </script>       
+        </div>
+    </div>
+</body>
+</html>

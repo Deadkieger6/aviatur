@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  } 
+  .box1{
+  margin-left: 15px;
+  border-radius: 0px;
+  width: 50px;
+  }
+  .box{
+   border-style: groove;
+   border-radius: 6px;
+  }
+  .btn{
+  border-radius: 6px;
+  width: 100px;
+  height: 30px;
+  }
+  .table{
+    
+    text-align: center;
+  
+  }
+.all{
+  text-align: center; 
+}
+  .icons{
+   height:30px;
+   width: 30px;
+
+  }
+  .header { 
+    padding: 20px;
+    background: #1187F0; /*aca voy */
+    color: white;
+  }   
+  .row {   
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .side {
+    -ms-flex: 30%; 
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  .main {   
+    -ms-flex: 90%;
+    flex: 70%;
+    background-color: white;
+    padding: 30px;
+  }
+ 
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
